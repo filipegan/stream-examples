@@ -53,8 +53,14 @@ Validate the containers by running
 ```
     psql -U materialize -h materialized -p 6875 materialize
     show objects;
+    show schemas;
+    \q
 ```
 >    ⚠️ If you change the credentials in .env then please make sure to use them ⚠️
+- exit `mzcli` machine
+````
+exit
+````
 
 ## dbt
 
@@ -80,11 +86,14 @@ Validate the containers by running
 ```
     rpk topic consume flight_information
 ```
-> To exit the consumer, press Ctrl+C.
+> To exit the consumer, press `Ctrl+C`.
 
 ## Create dbt project
 
-Next few steps should be exected from the *dbt* container
+> Next few steps should be exected from the ***dbt* container**
+```
+  docker exec -it dbt /bin/bash
+```
 
 - cd into your preferred directory
 ```
@@ -117,10 +126,10 @@ Next few steps should be exected from the *dbt* container
 
 - Edit the `dbt_project.yml` to connect to the profile which we just created. The value for profile should exactly match with the name in `profiles.yml`
 
-- From the `dbt` container and project directory, run `dbt-set-profile` to update DBT_PROFILES_DIR. This helps to easily switch between multiple dbt projects.
-
->        dbt-set-profile is alias to unset DBT_PROFILES_DIR && export DBT_PROFILES_DIR=$PWD
-
+> From the `dbt` container and project directory, ***run `dbt-set-profile`*** to update DBT_PROFILES_DIR. This helps to easily switch between multiple dbt projects.
+```
+        dbt-set-profile is alias to unset DBT_PROFILES_DIR && export DBT_PROFILES_DIR=$PWD
+```
 - Update `name` in `dbt_project.yml` to appropriate project name (say ***dbt_materialize_redpanda_demo***)
 
 - Validate the dbt profile and connection by running
@@ -166,10 +175,10 @@ ENVELOPE UPSERT;
 
 ```yaml
 models:
-  dbt_materialize_redpanda_demo:
-    # Config indicated by + and applies to all files under models/sources/
+  dbt_materialize_redpanda:
+    # Config indicated by + and applies to all files under models/example/
     materialized: view
-    sources:
+    source:
       +materialized: sources
       +schema: sources
 ```
