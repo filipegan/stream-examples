@@ -90,7 +90,7 @@ exit
 
 ## Create dbt project
 
-> Next few steps should be exected from the ***dbt* container**
+> ⚠️ Next few steps should be exected from the ***dbt* container** ⚠️  
 ```
   docker exec -it dbt /bin/bash
 ```
@@ -126,7 +126,7 @@ exit
 
 - Edit the `dbt_project.yml` to connect to the profile which we just created. The value for profile should exactly match with the name in `profiles.yml`
 
-> From the `dbt` container and project directory, ***run `dbt-set-profile`*** to update DBT_PROFILES_DIR. This helps to easily switch between multiple dbt projects.
+> ⚠️ From the `dbt` container and project directory, ***run `dbt-set-profile`*** to update DBT_PROFILES_DIR. This helps to easily switch between multiple dbt projects. ⚠️
 ```
         dbt-set-profile is alias to unset DBT_PROFILES_DIR && export DBT_PROFILES_DIR=$PWD
 ```
