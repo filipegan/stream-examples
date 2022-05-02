@@ -18,8 +18,8 @@ services:
     restart: unless-stopped
     volumes:
       - type: bind
-        source: /C
-        target: /C
+        source: /home/ubuntu/data
+        target: /home/ubuntu/data
     ports:
       - "8085:8085"
     environment:

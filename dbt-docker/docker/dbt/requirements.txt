@@ -4,3 +4,7 @@ dbt-redshift==1.0.0
 dbt-snowflake==1.0.0
 dbt-bigquery==1.0.0
 dbt-materialize==1.0.1
+
+# dbt 1.0.1 has a dependency on Jinja2, but MarkupSage evolved. we need to go back to 2.0.1
+# https://github.com/dbt-labs/dbt-core/issues/4745
+MarkupSafe==2.0.1

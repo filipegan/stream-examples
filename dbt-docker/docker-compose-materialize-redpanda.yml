@@ -54,8 +54,10 @@ services:
       - materialize
 
   metabase:
-    image: metabase/metabase
+    image: filipe/metabase
     container_name: metabase
+    build: ./docker/metabase-m1/
+
     depends_on:
       - materialized
     ports:

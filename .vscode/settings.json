@@ -1,0 +1,15 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 6875,
+            "driver": "PostgreSQL",
+            "name": "dev01multipass",
+            "group": "Local",
+            "database": "materialize",
+            "username": "materialize",
+            "password": "puta"
+        }
+    ]
+}
